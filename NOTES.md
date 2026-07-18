@@ -1,0 +1,49 @@
+# NOTES — working memory
+
+## Data
+- Original Stanford Cars URLs are dead (pytorch/vision#7545). Using Kaggle
+  mirror `rickyyyyyyy/torchvision-stanford-cars` — torchvision-compatible
+  layout, load with `StanfordCars(root, download=False)`. Needs `scipy` for
+  the .mat annotation files.
+- Split policy: official test (8,041) frozen forever; val = stratified 10% of
+  official train, seed 42, made in `ml/dataset.py` before any training.
+- Class name parsing: `<make> <model...> <year>`. Multi-word makes are exactly
+  AM General, Aston Martin, Land Rover. "Rolls-Royce" and "smart" are single
+  tokens. "Ram C/V Cargo Van Minivan 2012" has a slash in the model — don't
+  use class names as file paths.
+
+## Training
+- Backbone `convnext_tiny.fb_in22k_ft_in1k`: in22k pretraining chosen for
+  fine-grained transfer; ~28M params, CPU-friendly at 224.
+- Train-acc under mixup is approximate (compared against unmixed labels) —
+  trust val only.
+- Checkpoint every epoch (`last.ckpt`, full optimizer/scheduler/scaler state);
+  `--resume auto` survives Kaggle session caps. Kaggle `/kaggle/working` is
+  NOT persisted unless you save a notebook version — download `runs/` before
+  a session dies mid-training.
+- (fill in after run: linear-probe baseline vs fine-tune, epochs to converge,
+  augmentation observations)
+
+## Evaluation
+- Temperature fitted on val (never test); ECE reported raw vs scaled.
+- OOD thresholds = 5th percentile of calibrated max-prob / 95th percentile of
+  entropy on in-distribution test. Heuristic, not a guarantee — revisit with a
+  real OOD sample set (e.g. random ImageNet images) if uploads misbehave.
+- (fill in after run: top confusion pairs — expect same-model-different-year)
+
+## Export / serving
+- ONNX opset 17, dynamic batch. Parity gate: max logit diff < 1e-2 and top-1
+  must match on 8 random inputs.
+- `api/inference.preprocess` must mirror `ml/transforms.eval_transforms`
+  (resize-256 shorter side → center-crop 224 → imagenet norm). PIL BILINEAR vs
+  torchvision default interpolation is a known tiny mismatch source — if
+  parity-on-real-images ever looks off, check interpolation first.
+
+## Game
+- True silhouette (`brightness(0)`) only works on white-background renders —
+  on real photos it's a black rectangle. Silhouette mode instead uses
+  `grayscale(1) brightness(0.45) contrast(6)`, which crushes photos to
+  near-silhouette. Tune if too easy/hard.
+- AI always sees the full image; handicapped modes (silhouette/detail 1.5×,
+  speed 2×) pay the human more instead. Stated in the round-view hint.
+- Truth label never leaves the server before /reveal — devtools can't spoil.

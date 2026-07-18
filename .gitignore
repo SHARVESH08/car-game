@@ -1,0 +1,24 @@
+# model artifacts are never committed — see artifacts/download_model.py
+artifacts/*
+!artifacts/download_model.py
+!artifacts/checksums.json
+
+# data lives outside git
+data/
+*.pth
+*.ckpt
+*.onnx
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+ml/results/
+
+# generated per-machine (absolute-ish paths inside)
+api/test_manifest.json
+
+# node
+node_modules/
+game/dist/
