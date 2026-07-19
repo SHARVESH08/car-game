@@ -72,6 +72,18 @@
   Linux hosts.
 
 ## v2 dataset (modern cars) — research notes
+- User's Raw_Dataset (C:\VIT Stuff\Sem-4\FoDS\Project\Raw_Dataset): 52k imgs.
+  test/ = 3,778 classes (!), train/ = 308 — split is broken/incomplete.
+  Mixed naming ("1921_Maybach_...", "WIESMANN_MF4S_2010Present",
+  "Zenvo_ST1_20092017") and make-case dupes (Mer/MER/MercedesBenz). ~10
+  imgs/class — too thin alone, but ~220 classes are 2010s-2020s: valuable
+  modern coverage after cleaning. Autoevolution-scraped.
+- kingjosephm/vehicle_make_model_dataset: 664k imgs, 574 make-model classes,
+  2000-2021 — but distribution is BY EMAIL REQUEST only, Google-scraped
+  (murky rights). Skip.
+- Car Connection (kaggle prondeau): ~60k press photos, labels encoded in
+  filenames (Make_Model_Year_specs...), up to ~2020, direct Kaggle download.
+  Good mid-2010s coverage, clean studio-style shots.
 - Car-1000 (arXiv 2503.12385) verified real: github.com/toggle1995/Car-1000,
   Google Drive download available. 140k images, 1000 models, 166 makers,
   through ~2024 (nothing public is labeled through 2026). Source is Chinese
