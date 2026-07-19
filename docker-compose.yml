@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # comma-separated origins allowed to call the API (the game frontend)
+      GAME_ORIGINS: http://localhost:5173
+      DATA_ROOT: /data
+    volumes:
+      # Stanford Cars mirror on the host -> read-only inside the container.
+      # Adjust the host path; must contain stanford_cars/.
+      - C:\datasets\cars:/data:ro

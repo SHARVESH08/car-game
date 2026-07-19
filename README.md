@@ -131,6 +131,21 @@ pay the human more. Session-local scoreboard: you vs the model, with streaks.
 Deploy: the frontend is static (`npm run build`, works on Vercel free tier)
 with `VITE_API_URL` pointing at wherever the API lives.
 
+### 4b. Docker (optional)
+
+The API containerizes for portable deployment (any Docker host — the game
+frontend stays static on Vercel):
+
+```bash
+python artifacts/download_model.py     # model is not in git; bake it into the image
+docker compose up --build              # adjust the dataset volume path in docker-compose.yml
+```
+
+Upload mode (`/predict`) works with no dataset mounted; test-set game rounds
+need the volume. Note for Docker Desktop on Windows: the port proxy can throw
+spurious 500s for a few seconds right after container start — they never reach
+uvicorn; wait for the container to settle.
+
 ### 5. Tests
 
 ```bash

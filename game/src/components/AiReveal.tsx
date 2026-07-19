@@ -20,6 +20,12 @@ export default function AiReveal({ top5, isConfident, notConfidentMessage }: Pro
             "Not confident — this doesn't look like one of the 196 cars I was trained on. Best guesses:"}
         </p>
       )}
+      {top5.length > 0 && isConfident && (
+        <div className="ai-top-guess">
+          <span className="ai-top-name">{top5[0].name}</span>
+          <span className="conf-badge">{(top5[0].prob * 100).toFixed(1)}% confident</span>
+        </div>
+      )}
       {top5.map((p, i) => (
         <div className="pred-row" key={p.idx ?? i}>
           <span className="pred-rank">{i + 1}</span>

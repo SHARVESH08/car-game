@@ -63,6 +63,24 @@
   torchvision default interpolation is a known tiny mismatch source — if
   parity-on-real-images ever looks off, check interpolation first.
 
+## Docker
+- Image = python:3.12-slim + api/ + model baked in. Rounds need the dataset
+  volume at /data; /predict works without it.
+- Docker Desktop on Windows: right after `docker run`, the port-forward proxy
+  intermittently returns 500s that NEVER appear in uvicorn's access log —
+  it's the proxy, not the app (20/20 clean once settled). Doesn't exist on
+  Linux hosts.
+
+## v2 dataset (modern cars) — research notes
+- Car-1000 (arXiv 2503.12385) verified real: github.com/toggle1995/Car-1000,
+  Google Drive download available. 140k images, 1000 models, 166 makers,
+  through ~2024 (nothing public is labeled through 2026). Source is Chinese
+  forum DongCheDi — FIRST CHECK whether class_info.json names are English.
+  Fallback: DVM-CAR (public, UK market, <=2020, CC BY-NC, 300x300 images).
+- Merge plan: unified make/model/year labels.json, dedupe near-identical
+  classes across sources, per-source frozen test sets (publish Stanford and
+  modern numbers separately), weighted sampler for imbalance.
+
 ## Game
 - True silhouette (`brightness(0)`) only works on white-background renders —
   on real photos it's a black rectangle. Silhouette mode instead uses

@@ -1,0 +1,11 @@
+.git
+.venv
+__pycache__
+**/__pycache__
+node_modules
+game
+ml/results
+kaggle_output
+artifacts/best.pt
+tests
+NOTES.md
