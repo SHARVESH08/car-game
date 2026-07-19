@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 
 :root {
-  --race-red: #FF0020;
-  --race-orange: #FF6B00;
-  --race-yellow: #FFD700;
+  --race-red: #E14B57;
+  --race-orange: #EF8A4C;
+  --race-yellow: #E7C979;
   --race-dark: #0A0A0F;
   --race-card: #0F0F1A;
   --race-border: #1E1E2E;
-  --race-glow: rgba(255, 0, 32, 0.4);
-  --race-glow-orange: rgba(255, 107, 0, 0.4);
+  --race-glow: rgba(225, 75, 87, 0.4);
+  --race-glow-orange: rgba(239, 138, 76, 0.4);
 
   --asphalt: #0a0a0f;
   --asphalt-mid: #111118;
   --asphalt-light: #1a1a28;
   --track: #14141f;
-  --neon-red: #ff2d2d;
-  --neon-orange: #ff6b00;
-  --neon-yellow: #ffd700;
+  --neon-red: #e05561;
+  --neon-orange: #ef8a4c;
+  --neon-yellow: #e7c979;
   --neon-cyan: #00e5ff;
   --neon-white: #f0f4ff;
   --stripe-white: #ffffff18;
   --glass: rgba(255, 255, 255, 0.04);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --red-glow: 0 0 20px #ff2d2d88, 0 0 60px #ff2d2d33;
-  --orange-glow: 0 0 20px #ff6b0088, 0 0 60px #ff6b0033;
+  --red-glow: 0 0 20px #e0556188, 0 0 60px #e0556133;
+  --orange-glow: 0 0 20px #ef8a4c88, 0 0 60px #ef8a4c33;
   --cyan-glow: 0 0 20px #00e5ff88, 0 0 60px #00e5ff33;
   --font-display: 'Orbitron', monospace;
   --font-body: 'Rajdhani', sans-serif;
@@ -97,7 +97,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9990;
-  opacity: 0.4;
+  opacity: 0.15;
 }
 
 /* Glow button base */
@@ -148,7 +148,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,0,32,0.03), transparent);
+  background: linear-gradient(135deg, rgba(225,75,87,0.03), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -156,7 +156,7 @@ body::before {
 .race-card:hover {
   border-color: var(--race-red);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(255, 0, 32, 0.15), inset 0 0 30px rgba(255,0,32,0.02);
+  box-shadow: 0 12px 40px rgba(225, 75, 87, 0.15), inset 0 0 30px rgba(225,75,87,0.02);
 }
 
 .race-card:hover::after {
@@ -178,8 +178,8 @@ body::before {
     -45deg,
     transparent,
     transparent 10px,
-    rgba(255, 0, 32, 0.04) 10px,
-    rgba(255, 0, 32, 0.04) 20px
+    rgba(225, 75, 87, 0.04) 10px,
+    rgba(225, 75, 87, 0.04) 20px
   );
 }
 
@@ -260,8 +260,8 @@ body::before {
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 45, 45, 0.4);
-  box-shadow: 0 0 30px rgba(255, 45, 45, 0.1);
+  border-color: rgba(224, 85, 97, 0.4);
+  box-shadow: 0 0 30px rgba(224, 85, 97, 0.1);
 }
 
 /* ═══ CHECKERED FLAG ACCENT ═══ */
@@ -306,10 +306,10 @@ body::before {
 }
 
 .race-input:focus {
-  background: rgba(255, 45, 45, 0.05);
+  background: rgba(224, 85, 97, 0.05);
   border-color: var(--neon-red);
   border-bottom-color: var(--neon-orange);
-  box-shadow: 0 4px 20px rgba(255, 45, 45, 0.2);
+  box-shadow: 0 4px 20px rgba(224, 85, 97, 0.2);
 }
 
 .race-input::placeholder { color: rgba(255,255,255,0.25); }
@@ -318,7 +318,7 @@ body::before {
 .timer-bar {
   height: 4px;
   background: linear-gradient(90deg, var(--neon-red), var(--neon-orange), var(--neon-yellow));
-  box-shadow: 0 0 10px rgba(255, 107, 0, 0.6);
+  box-shadow: 0 0 10px rgba(239, 138, 76, 0.6);
   transition: width 1s linear;
 }
 
@@ -339,7 +339,7 @@ body::before {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 12px rgba(255, 107, 0, 0.5));
+  filter: drop-shadow(0 0 12px rgba(239, 138, 76, 0.5));
 }
 
 /* ═══ LEADERBOARD ROW ═══ */
@@ -353,7 +353,7 @@ body::before {
 }
 
 .lb-row:hover {
-  background: rgba(255, 45, 45, 0.06);
+  background: rgba(224, 85, 97, 0.06);
 }
 
 .lb-rank {
@@ -362,7 +362,7 @@ body::before {
   font-weight: 700;
 }
 
-.lb-rank.gold   { color: #ffd700; text-shadow: 0 0 12px #ffd70088; }
+.lb-rank.gold   { color: #e7c979; text-shadow: 0 0 12px #e7c97988; }
 .lb-rank.silver { color: #c0c0c0; text-shadow: 0 0 12px #c0c0c088; }
 .lb-rank.bronze { color: #cd7f32; text-shadow: 0 0 12px #cd7f3288; }
 
@@ -379,7 +379,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 60%, rgba(255,45,45,0.15) 100%);
+  background: linear-gradient(135deg, transparent 60%, rgba(224,85,97,0.15) 100%);
   opacity: 0;
   transition: opacity var(--transition-mid);
 }
@@ -460,7 +460,7 @@ body::before {
 /* ═══ AI PREDICTION PANEL (model reveal) ═══ */
 .ai-panel {
   background: var(--race-card);
-  border: 1px solid rgba(255, 107, 0, 0.25);
+  border: 1px solid rgba(239, 138, 76, 0.25);
   border-radius: 8px;
   padding: 1.2rem 1.4rem;
 }
@@ -477,19 +477,19 @@ body::before {
 .ai-top-guess {
   display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap;
   margin-bottom: 0.9rem; padding: 0.6rem 0.8rem;
-  background: rgba(255, 107, 0, 0.07);
-  border: 1px solid rgba(255, 107, 0, 0.25);
+  background: rgba(239, 138, 76, 0.07);
+  border: 1px solid rgba(239, 138, 76, 0.25);
   border-radius: 6px;
 }
 .ai-top-name { font-family: 'Bebas Neue', cursive; font-size: 1.2rem; letter-spacing: 0.05em; color: white; }
 .conf-badge {
   font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em;
-  color: var(--race-orange); border: 1px solid rgba(255, 107, 0, 0.45);
+  color: var(--race-orange); border: 1px solid rgba(239, 138, 76, 0.45);
   border-radius: 3px; padding: 0.18rem 0.55rem; white-space: nowrap;
 }
 .ood-badge {
   font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em;
-  color: var(--race-yellow); border: 1px solid rgba(255, 215, 0, 0.45);
+  color: var(--race-yellow); border: 1px solid rgba(231, 201, 121, 0.45);
   border-radius: 3px; padding: 0.15rem 0.5rem;
 }
 .ood-message { font-family: 'Barlow', sans-serif; font-size: 0.8rem; color: var(--race-yellow); margin-bottom: 0.8rem; }

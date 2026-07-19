@@ -125,14 +125,6 @@ export const authAPI = {
 
 // ---------- game ----------
 
-const DEMO_LEADERS = [
-  { rank: 0, username: 'APEX_DRIVER', totalScore: 98450, accuracy: 94.2, gamesPlayed: 312 },
-  { rank: 0, username: 'TURBO_REX', totalScore: 87200, accuracy: 91.7, gamesPlayed: 289 },
-  { rank: 0, username: 'NITRO_PHANTOM', totalScore: 76800, accuracy: 89.5, gamesPlayed: 256 },
-  { rank: 0, username: 'REDLINE_ACE', totalScore: 65400, accuracy: 88.0, gamesPlayed: 201 },
-  { rank: 0, username: 'DRIFT_KING_9', totalScore: 52100, accuracy: 85.3, gamesPlayed: 178 },
-];
-
 export const gameAPI = {
   getRound: async (): Promise<{ data: Round }> => {
     const r = await http<{ round_id: string; image_url: string; hints: string[] }>(
@@ -160,21 +152,21 @@ export const gameAPI = {
     return http<PredictResult>('/predict', { method: 'POST', body });
   },
 
+  // Honest leaderboard: only real local players — the grid starts empty.
   getLeaderboard: async () => {
     const me = computeStats();
     const user = JSON.parse(localStorage.getItem('vehicleiq_user') ?? 'null');
-    const rows = [...DEMO_LEADERS];
-    if (me.gamesPlayed > 0) {
-      rows.push({
-        rank: 0,
-        username: user?.username ? `${user.username} (YOU)` : 'YOU',
-        totalScore: me.totalScore,
-        accuracy: me.accuracy,
-        gamesPlayed: me.gamesPlayed,
-      });
-    }
-    rows.sort((a, b) => b.totalScore - a.totalScore);
-    return { data: { leaderboard: rows.map((r, i) => ({ ...r, rank: i + 1 })) } };
+    const rows =
+      me.gamesPlayed > 0
+        ? [{
+            rank: 1,
+            username: user?.username ?? 'GUEST DRIVER',
+            totalScore: me.totalScore,
+            accuracy: me.accuracy,
+            gamesPlayed: me.gamesPlayed,
+          }]
+        : [];
+    return { data: { leaderboard: rows } };
   },
 
   getUserStats: async () => ({ data: computeStats() }),

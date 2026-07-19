@@ -83,8 +83,8 @@ const Dashboard: React.FC = () => {
         gap: '1.5rem',
         marginBottom: '3rem',
         padding: '2rem',
-        background: 'rgba(255,0,32,0.04)',
-        border: '1px solid rgba(255,0,32,0.15)',
+        background: 'rgba(225,75,87,0.04)',
+        border: '1px solid rgba(225,75,87,0.15)',
         borderRadius: '8px',
         opacity: 0,
         animationFillMode: 'forwards',
@@ -93,12 +93,12 @@ const Dashboard: React.FC = () => {
           width: '70px',
           height: '70px',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg, #FF0020, #FF6B00)',
+          background: 'linear-gradient(135deg, #E14B57, #EF8A4C)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           fontSize: '2rem',
-          boxShadow: '0 0 20px rgba(255,0,32,0.3)',
+          boxShadow: '0 0 20px rgba(225,75,87,0.3)',
         }}>
           <GiRaceCar />
         </div>
@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
           <div style={{
             fontFamily: "'Share Tech Mono', monospace",
             fontSize: '0.7rem',
-            color: '#FF6B00',
+            color: '#EF8A4C',
             letterSpacing: '0.15em',
           }}>RANK #{stats.rank} · SEASON 2026</div>
         </div>
@@ -125,9 +125,9 @@ const Dashboard: React.FC = () => {
         gap: '1rem',
         marginBottom: '3rem',
       }}>
-        <StatCard label="TOTAL SCORE" value={stats.totalScore.toLocaleString()} icon={<GiSpeedometer />} color="#FF0020" delay={0.1} />
-        <StatCard label="ACCURACY" value={`${stats.accuracy}%`} icon={<FiTarget />} color="#FF6B00" delay={0.2} />
-        <StatCard label="RACES" value={stats.gamesPlayed} icon={<GiRaceCar />} color="#FFD700" delay={0.3} />
+        <StatCard label="TOTAL SCORE" value={stats.totalScore.toLocaleString()} icon={<GiSpeedometer />} color="#E14B57" delay={0.1} />
+        <StatCard label="ACCURACY" value={`${stats.accuracy}%`} icon={<FiTarget />} color="#EF8A4C" delay={0.2} />
+        <StatCard label="RACES" value={stats.gamesPlayed} icon={<GiRaceCar />} color="#E7C979" delay={0.3} />
         <StatCard label="GLOBAL RANK" value={`#${stats.rank}`} icon={<FiAward />} color="#8B5CF6" delay={0.4} />
         <StatCard label="BEST STREAK" value={stats.bestStreak} icon={<FiTrendingUp />} color="#22C55E" delay={0.5} />
       </div>
@@ -150,7 +150,7 @@ const Dashboard: React.FC = () => {
           alignItems: 'center',
           gap: '0.5rem',
         }}>
-          <span style={{ color: '#FF0020' }}>◆</span> MODE BREAKDOWN
+          <span style={{ color: '#E14B57' }}>◆</span> MODE BREAKDOWN
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -165,7 +165,7 @@ const Dashboard: React.FC = () => {
                 letterSpacing: '0.1em',
               }}>
                 <span style={{ color: 'rgba(255,255,255,0.7)' }}>{mode.toUpperCase()}</span>
-                <span style={{ color: '#FF6B00' }}>{s.accuracy}%</span>
+                <span style={{ color: '#EF8A4C' }}>{s.accuracy}%</span>
               </div>
               <div style={{
                 height: '6px',
@@ -176,9 +176,9 @@ const Dashboard: React.FC = () => {
                 <div style={{
                   height: '100%',
                   width: `${s.accuracy}%`,
-                  background: `linear-gradient(90deg, #FF0020, #FF6B00)`,
+                  background: `linear-gradient(90deg, #E14B57, #EF8A4C)`,
                   borderRadius: '3px',
-                  boxShadow: '0 0 8px rgba(255,107,0,0.4)',
+                  boxShadow: '0 0 8px rgba(239,138,76,0.4)',
                   transition: 'width 1s cubic-bezier(0.23, 1, 0.32, 1)',
                 }} />
               </div>

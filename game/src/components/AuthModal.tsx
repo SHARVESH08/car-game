@@ -58,7 +58,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,0,32,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 40% 40% at 50% 50%, rgba(225,75,87,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -77,12 +77,12 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
           position: 'absolute',
           top: 0, left: 0, right: 0,
           height: '3px',
-          background: 'linear-gradient(90deg, #FF0020, #FF6B00, #FFD700)',
+          background: 'linear-gradient(90deg, #E14B57, #EF8A4C, #E7C979)',
         }} />
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <GiRaceCar size={40} color="#FF0020" style={{ filter: 'drop-shadow(0 0 10px rgba(255,0,32,0.5))' }} />
+          <GiRaceCar size={40} color="#E14B57" style={{ filter: 'drop-shadow(0 0 10px rgba(225,75,87,0.5))' }} />
           <h1 style={{
             fontFamily: "'Bebas Neue', cursive",
             fontSize: '2.5rem',
@@ -90,7 +90,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
             color: 'white',
             marginTop: '0.5rem',
           }}>
-            Vehicle<span style={{ color: '#FF0020' }}>IQ</span>
+            Vehicle<span style={{ color: '#E14B57' }}>IQ</span>
           </h1>
         </div>
 
@@ -109,7 +109,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
               style={{
                 flex: 1,
                 padding: '10px',
-                background: mode === m ? 'linear-gradient(135deg, #FF0020, #FF6B00)' : 'transparent',
+                background: mode === m ? 'linear-gradient(135deg, #E14B57, #EF8A4C)' : 'transparent',
                 border: 'none',
                 borderRadius: '2px',
                 color: mode === m ? 'white' : 'rgba(255,255,255,0.4)',
@@ -134,7 +134,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               style={{ ...inputStyle, fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.1em' }}
-              onFocus={(e) => (e.target.style.borderColor = 'rgba(255,0,32,0.5)')}
+              onFocus={(e) => (e.target.style.borderColor = 'rgba(225,75,87,0.5)')}
               onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
             />
           )}
@@ -144,7 +144,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={{ ...inputStyle, fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.1em' }}
-            onFocus={(e) => (e.target.style.borderColor = 'rgba(255,0,32,0.5)')}
+            onFocus={(e) => (e.target.style.borderColor = 'rgba(225,75,87,0.5)')}
             onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
           />
           <input
@@ -154,7 +154,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
             style={{ ...inputStyle, fontFamily: "'Bebas Neue', cursive", letterSpacing: '0.15em' }}
-            onFocus={(e) => (e.target.style.borderColor = 'rgba(255,0,32,0.5)')}
+            onFocus={(e) => (e.target.style.borderColor = 'rgba(225,75,87,0.5)')}
             onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
           />
         </div>
@@ -163,12 +163,12 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
           <div style={{
             margin: '1rem 0 0',
             padding: '10px',
-            background: 'rgba(255,0,32,0.1)',
-            border: '1px solid rgba(255,0,32,0.3)',
+            background: 'rgba(225,75,87,0.1)',
+            border: '1px solid rgba(225,75,87,0.3)',
             borderRadius: '4px',
             fontFamily: "'Share Tech Mono', monospace",
             fontSize: '0.75rem',
-            color: '#FF6B00',
+            color: '#EF8A4C',
             letterSpacing: '0.05em',
           }}>⚠ {error}</div>
         )}
@@ -201,7 +201,7 @@ const AuthModal: React.FC<{ mode: 'login' | 'register' }> = ({ mode: initMode })
           {mode === 'login' ? 'No account? ' : 'Already racing? '}
           <span
             onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
-            style={{ color: '#FF6B00', cursor: 'none', textDecoration: 'underline' }}
+            style={{ color: '#EF8A4C', cursor: 'none', textDecoration: 'underline' }}
           >
             {mode === 'login' ? 'Join the grid' : 'Sign in'}
           </span>

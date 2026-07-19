@@ -5,7 +5,7 @@ interface SpeedLineProps {
   color?: string;
 }
 
-const SpeedLines: React.FC<SpeedLineProps> = ({ count = 18, color = '#ff2d2d' }) => {
+const SpeedLines: React.FC<SpeedLineProps> = ({ count = 18, color = '#e05561' }) => {
   const lines = useMemo(() =>
     Array.from({ length: count }, (_, i) => ({
       id: i,
@@ -13,7 +13,7 @@ const SpeedLines: React.FC<SpeedLineProps> = ({ count = 18, color = '#ff2d2d' })
       width: `${80 + Math.random() * 200}px`,
       duration: `${1.2 + Math.random() * 2}s`,
       delay: `${Math.random() * 2}s`,
-      opacity: 0.08 + Math.random() * 0.18,
+      opacity: 0.05 + Math.random() * 0.1,
       height: Math.random() > 0.7 ? '2px' : '1px',
     })),
     [count]

@@ -10,23 +10,15 @@ interface LeaderEntry {
   gamesPlayed: number;
 }
 
-const DEMO_DATA: LeaderEntry[] = [
-  { rank: 1, username: 'APEX_DRIVER', totalScore: 98450, accuracy: 94.2, gamesPlayed: 312 },
-  { rank: 2, username: 'TURBO_REX', totalScore: 87200, accuracy: 91.7, gamesPlayed: 289 },
-  { rank: 3, username: 'NITRO_PHANTOM', totalScore: 76800, accuracy: 89.5, gamesPlayed: 256 },
-  { rank: 4, username: 'REDLINE_ACE', totalScore: 65400, accuracy: 88.0, gamesPlayed: 201 },
-  { rank: 5, username: 'DRIFT_KING_9', totalScore: 52100, accuracy: 85.3, gamesPlayed: 178 },
-];
-
-const RANK_COLORS: Record<number, string> = { 1: '#FFD700', 2: '#C0C0C0', 3: '#CD7F32' };
+const RANK_COLORS: Record<number, string> = { 1: '#E7C979', 2: '#C0C0C0', 3: '#CD7F32' };
 
 const Leaderboard: React.FC = () => {
-  const [data, setData] = useState<LeaderEntry[]>(DEMO_DATA);
+  const [data, setData] = useState<LeaderEntry[]>([]);
 
   useEffect(() => {
     gameAPI.getLeaderboard()
       .then((res) => setData(res.data.leaderboard))
-      .catch(() => setData(DEMO_DATA));
+      .catch(() => setData([]));
   }, []);
 
   return (
@@ -36,7 +28,7 @@ const Leaderboard: React.FC = () => {
         <span style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: '0.75rem',
-          color: '#FF6B00',
+          color: '#EF8A4C',
           letterSpacing: '0.3em',
           display: 'block',
           marginBottom: '0.5rem',
@@ -51,13 +43,13 @@ const Leaderboard: React.FC = () => {
           justifyContent: 'center',
           gap: '0.5rem',
         }}>
-          <GiPodium color="#FFD700" />
+          <GiPodium color="#E7C979" />
           LEADERBOARD
         </h2>
         <div style={{
           width: '60px',
           height: '3px',
-          background: 'linear-gradient(90deg, #FFD700, #FF6B00)',
+          background: 'linear-gradient(90deg, #E7C979, #EF8A4C)',
           margin: '1rem auto 0',
           borderRadius: '2px',
         }} />
@@ -83,6 +75,20 @@ const Leaderboard: React.FC = () => {
           <span style={{ textAlign: 'right' }}>RACES</span>
         </div>
 
+        {data.length === 0 && (
+          <div className="race-card" style={{
+            borderRadius: '6px',
+            padding: '2.5rem 1.5rem',
+            textAlign: 'center',
+            fontFamily: "'Share Tech Mono', monospace",
+            fontSize: '0.8rem',
+            letterSpacing: '0.2em',
+            color: 'rgba(255,255,255,0.35)',
+          }}>
+            NO DRIVERS ON THE GRID YET — PLAY A ROUND TO CLAIM P1
+          </div>
+        )}
+
         {data.map((entry, i) => (
           <div
             key={entry.rank}
@@ -99,7 +105,7 @@ const Leaderboard: React.FC = () => {
               animationFillMode: 'forwards',
               borderColor: entry.rank <= 3 ? `${RANK_COLORS[entry.rank]}30` : undefined,
               background: entry.rank === 1
-                ? 'linear-gradient(135deg, rgba(255,215,0,0.05), rgba(15,15,26,1))'
+                ? 'linear-gradient(135deg, rgba(231,201,121,0.05), rgba(15,15,26,1))'
                 : 'var(--race-card)',
             }}
           >
@@ -128,7 +134,7 @@ const Leaderboard: React.FC = () => {
               <span style={{
                 fontFamily: "'Share Tech Mono', monospace",
                 fontSize: '1rem',
-                color: entry.rank <= 3 ? RANK_COLORS[entry.rank] : '#FF6B00',
+                color: entry.rank <= 3 ? RANK_COLORS[entry.rank] : '#EF8A4C',
                 textShadow: entry.rank <= 3 ? `0 0 8px ${RANK_COLORS[entry.rank]}50` : 'none',
               }}>{entry.totalScore.toLocaleString()}</span>
             </div>

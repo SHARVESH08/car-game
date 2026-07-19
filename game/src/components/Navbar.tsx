@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           ? 'rgba(10, 10, 15, 0.96)'
           : 'rgba(10, 10, 15, 0.7)',
         backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255, 45, 45, 0.15)',
+        borderBottom: '1px solid rgba(224, 85, 97, 0.15)',
         boxShadow: scrolled ? '0 4px 40px rgba(0,0,0,0.6)' : 'none',
       }}
     >

@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
             transparent 2px,
             transparent 60px
           ),
-          linear-gradient(to top, rgba(255,0,32,0.05), transparent)
+          linear-gradient(to top, rgba(225,75,87,0.05), transparent)
         `,
         animation: 'roadMove 1s linear infinite',
       }} />
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,0,32,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(225,75,87,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -68,7 +68,7 @@ const HeroSection: React.FC = () => {
         width: '80px',
         height: '80px',
         background: `
-          repeating-conic-gradient(rgba(255,0,32,0.15) 0% 25%, transparent 0% 50%)
+          repeating-conic-gradient(rgba(225,75,87,0.15) 0% 25%, transparent 0% 50%)
             0 0 / 20px 20px
         `,
       }} />
@@ -79,7 +79,7 @@ const HeroSection: React.FC = () => {
         width: '80px',
         height: '80px',
         background: `
-          repeating-conic-gradient(rgba(255,0,32,0.15) 0% 25%, transparent 0% 50%)
+          repeating-conic-gradient(rgba(225,75,87,0.15) 0% 25%, transparent 0% 50%)
             0 0 / 20px 20px
         `,
       }} />
@@ -91,18 +91,18 @@ const HeroSection: React.FC = () => {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
-          background: 'rgba(255,0,32,0.1)',
-          border: '1px solid rgba(255,0,32,0.3)',
+          background: 'rgba(225,75,87,0.1)',
+          border: '1px solid rgba(225,75,87,0.3)',
           padding: '6px 16px',
           borderRadius: '2px',
           marginBottom: '1.5rem',
           opacity: 0,
         }}>
-          <GiTireIronCross size={14} color="#FF0020" />
+          <GiTireIronCross size={14} color="#E14B57" />
           <span style={{
             fontFamily: "'Share Tech Mono', monospace",
             fontSize: '0.75rem',
-            color: '#FF6B00',
+            color: '#EF8A4C',
             letterSpacing: '0.2em',
           }}>
             SEASON 2026 · ENGINE READY
@@ -121,9 +121,9 @@ const HeroSection: React.FC = () => {
           <span style={{ display: 'block', color: 'white' }}>VEHICLE</span>
           <span style={{
             display: 'block',
-            color: '#FF0020',
-            textShadow: '0 0 40px rgba(255,0,32,0.6), 0 0 80px rgba(255,0,32,0.3)',
-            WebkitTextStroke: '1px rgba(255,0,32,0.5)',
+            color: '#E14B57',
+            textShadow: '0 0 40px rgba(225,75,87,0.6), 0 0 80px rgba(225,75,87,0.3)',
+            WebkitTextStroke: '1px rgba(225,75,87,0.5)',
           }}>IQ</span>
         </h1>
 
@@ -139,11 +139,11 @@ const HeroSection: React.FC = () => {
             fontFamily: "'Bebas Neue', cursive",
             fontSize: '2.5rem',
             letterSpacing: '0.3em',
-            color: '#FFD700',
+            color: '#E7C979',
             opacity: visible ? 1 : 0,
             transform: visible ? 'translateY(0)' : 'translateY(-10px)',
             transition: 'opacity 0.3s ease, transform 0.3s ease',
-            textShadow: '0 0 20px rgba(255,215,0,0.5)',
+            textShadow: '0 0 20px rgba(231,201,121,0.5)',
           }}>
             {TAGLINES[taglineIndex]}
           </span>
@@ -206,9 +206,9 @@ const HeroSection: React.FC = () => {
               transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,0,32,0.5)';
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(225,75,87,0.5)';
               (e.currentTarget as HTMLElement).style.color = 'white';
-              (e.currentTarget as HTMLElement).style.background = 'rgba(255,0,32,0.08)';
+              (e.currentTarget as HTMLElement).style.background = 'rgba(225,75,87,0.08)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)';
@@ -237,8 +237,8 @@ const HeroSection: React.FC = () => {
               <div style={{
                 fontFamily: "'Bebas Neue', cursive",
                 fontSize: '2.5rem',
-                color: '#FF0020',
-                textShadow: '0 0 20px rgba(255,0,32,0.4)',
+                color: '#E14B57',
+                textShadow: '0 0 20px rgba(225,75,87,0.4)',
               }}>{stat.value}</div>
               <div style={{
                 fontFamily: "'Share Tech Mono', monospace",

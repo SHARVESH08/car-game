@@ -110,7 +110,7 @@ const GameScreen: React.FC = () => {
         minHeight: '100vh', display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', gap: '1.5rem', padding: '2rem',
       }}>
-        <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: '3rem', letterSpacing: '0.15em', color: '#FF0020' }}>
+        <h2 style={{ fontFamily: "'Bebas Neue', cursive", fontSize: '3rem', letterSpacing: '0.15em', color: '#E14B57' }}>
           ENGINE SOUND MODE
         </h2>
         <p style={{ fontFamily: "'Share Tech Mono', monospace", color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>
@@ -149,8 +149,8 @@ const GameScreen: React.FC = () => {
           transform: 'translateX(-50%)',
           fontFamily: "'Bebas Neue', cursive",
           fontSize: '4rem',
-          color: '#FFD700',
-          textShadow: '0 0 30px rgba(255,215,0,0.6)',
+          color: '#E7C979',
+          textShadow: '0 0 30px rgba(231,201,121,0.6)',
           animation: 'scorePopup 0.8s ease-out forwards',
           zIndex: 200,
           pointerEvents: 'none',
@@ -166,7 +166,7 @@ const GameScreen: React.FC = () => {
             fontFamily: "'Bebas Neue', cursive",
             fontSize: '1.8rem',
             letterSpacing: '0.1em',
-            color: '#FF0020',
+            color: '#E14B57',
           }}>{MODE_TITLES[mode] || 'GAME MODE'}</h2>
 
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
@@ -174,8 +174,8 @@ const GameScreen: React.FC = () => {
               <div style={{
                 display: 'flex', alignItems: 'center', gap: '4px',
                 fontFamily: "'Bebas Neue', cursive",
-                color: '#FFD700', fontSize: '1.2rem',
-                textShadow: '0 0 10px rgba(255,215,0,0.4)',
+                color: '#E7C979', fontSize: '1.2rem',
+                textShadow: '0 0 10px rgba(231,201,121,0.4)',
               }}>
                 <FiZap /> {streak}x
               </div>
@@ -185,7 +185,7 @@ const GameScreen: React.FC = () => {
               fontFamily: "'Bebas Neue', cursive",
               color: 'white', fontSize: '1.5rem',
             }}>
-              <GiSpeedometer color="#FF6B00" />
+              <GiSpeedometer color="#EF8A4C" />
               {score.toLocaleString()}
             </div>
           </div>
@@ -204,12 +204,12 @@ const GameScreen: React.FC = () => {
             height: '100%',
             width: `${(timeLeft / totalSeconds) * 100}%`,
             background: timeLeft > totalSeconds / 3
-              ? 'linear-gradient(90deg, #FF0020, #FF6B00)'
+              ? 'linear-gradient(90deg, #E14B57, #EF8A4C)'
               : timeLeft > totalSeconds / 6
-              ? '#FF6B00'
-              : '#FF0020',
+              ? '#EF8A4C'
+              : '#E14B57',
             transition: 'width 1s linear, background 0.3s ease',
-            boxShadow: timeLeft <= 5 ? '0 0 12px #FF0020' : 'none',
+            boxShadow: timeLeft <= 5 ? '0 0 12px #E14B57' : 'none',
           }} />
         </div>
 
@@ -218,7 +218,7 @@ const GameScreen: React.FC = () => {
           textAlign: 'right',
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: '0.8rem',
-          color: timeLeft <= 5 ? '#FF0020' : 'rgba(255,255,255,0.4)',
+          color: timeLeft <= 5 ? '#E14B57' : 'rgba(255,255,255,0.4)',
           marginBottom: '1.5rem',
           animation: timeLeft <= 5 ? 'timerTick 0.5s ease infinite' : 'none',
           display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-end',
@@ -234,13 +234,13 @@ const GameScreen: React.FC = () => {
           border: feedback === 'correct'
             ? '1px solid #22C55E'
             : feedback === 'wrong'
-            ? '1px solid #FF0020'
+            ? '1px solid #E14B57'
             : '1px solid var(--race-border)',
           transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
           boxShadow: feedback === 'correct'
             ? '0 0 30px rgba(34,197,94,0.2)'
             : feedback === 'wrong'
-            ? '0 0 30px rgba(255,0,32,0.2)'
+            ? '0 0 30px rgba(225,75,87,0.2)'
             : 'none',
         }}>
           {loading || !round ? (
@@ -251,7 +251,7 @@ const GameScreen: React.FC = () => {
               justifyContent: 'center',
               fontFamily: "'Bebas Neue', cursive",
               fontSize: '1.3rem',
-              color: error ? '#FF0020' : 'rgba(255,255,255,0.2)',
+              color: error ? '#E14B57' : 'rgba(255,255,255,0.2)',
               letterSpacing: '0.2em',
               padding: '0 2rem',
               textAlign: 'center',
@@ -286,7 +286,7 @@ const GameScreen: React.FC = () => {
                 fontFamily: "'Share Tech Mono', monospace",
                 fontSize: '0.65rem',
                 letterSpacing: '0.2em',
-                color: '#FF6B00',
+                color: '#EF8A4C',
               }}>
                 {mode.toUpperCase()}
               </div>
@@ -298,15 +298,15 @@ const GameScreen: React.FC = () => {
                   inset: 0,
                   background: feedback === 'correct'
                     ? 'rgba(34,197,94,0.15)'
-                    : 'rgba(255,0,32,0.15)',
+                    : 'rgba(225,75,87,0.15)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontFamily: "'Bebas Neue', cursive",
                   fontSize: '3rem',
                   letterSpacing: '0.2em',
-                  color: feedback === 'correct' ? '#22C55E' : '#FF0020',
-                  textShadow: `0 0 20px ${feedback === 'correct' ? '#22C55E' : '#FF0020'}`,
+                  color: feedback === 'correct' ? '#22C55E' : '#E14B57',
+                  textShadow: `0 0 20px ${feedback === 'correct' ? '#22C55E' : '#E14B57'}`,
                   animation: 'dashIn 0.3s ease forwards',
                 }}>
                   {feedback === 'correct' ? '✓ CORRECT' : '✗ WRONG'}
@@ -332,13 +332,13 @@ const GameScreen: React.FC = () => {
           <div style={{ marginBottom: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             {round.hints.slice(0, hintsUsed).map((hint, i) => (
               <span key={i} style={{
-                background: 'rgba(255,107,0,0.1)',
-                border: '1px solid rgba(255,107,0,0.3)',
+                background: 'rgba(239,138,76,0.1)',
+                border: '1px solid rgba(239,138,76,0.3)',
                 padding: '4px 12px',
                 borderRadius: '2px',
                 fontFamily: "'Share Tech Mono', monospace",
                 fontSize: '0.75rem',
-                color: '#FF6B00',
+                color: '#EF8A4C',
               }}>{hint}</span>
             ))}
             {hintsUsed < round.hints.length && (
@@ -356,8 +356,8 @@ const GameScreen: React.FC = () => {
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,107,0,0.4)';
-                  e.currentTarget.style.color = '#FF6B00';
+                  e.currentTarget.style.borderColor = 'rgba(239,138,76,0.4)';
+                  e.currentTarget.style.color = '#EF8A4C';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
@@ -393,7 +393,7 @@ const GameScreen: React.FC = () => {
                 outline: 'none',
                 transition: 'border-color 0.2s ease',
               }}
-              onFocus={(e) => (e.target.style.borderColor = 'rgba(255,0,32,0.5)')}
+              onFocus={(e) => (e.target.style.borderColor = 'rgba(225,75,87,0.5)')}
               onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
             />
             <button

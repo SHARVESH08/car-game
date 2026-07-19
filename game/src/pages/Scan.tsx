@@ -40,7 +40,7 @@ const Scan: React.FC = () => {
         <span style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: '0.75rem',
-          color: '#FF6B00',
+          color: '#EF8A4C',
           letterSpacing: '0.3em',
           display: 'block',
           marginBottom: '0.5rem',
@@ -55,7 +55,7 @@ const Scan: React.FC = () => {
           justifyContent: 'center',
           gap: '0.6rem',
         }}>
-          <GiCarWheel color="#FF0020" />
+          <GiCarWheel color="#E14B57" />
           AI SCAN
         </h2>
         <p style={{
@@ -129,12 +129,12 @@ const Scan: React.FC = () => {
       {error && (
         <div style={{
           padding: '10px',
-          background: 'rgba(255,0,32,0.1)',
-          border: '1px solid rgba(255,0,32,0.3)',
+          background: 'rgba(225,75,87,0.1)',
+          border: '1px solid rgba(225,75,87,0.3)',
           borderRadius: '4px',
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: '0.75rem',
-          color: '#FF6B00',
+          color: '#EF8A4C',
         }}>⚠ {error}</div>
       )}
       {result && (

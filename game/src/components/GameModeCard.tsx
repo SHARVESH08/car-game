@@ -30,7 +30,7 @@ const MODES: GameMode[] = [
     description: 'Cropped headlights, badges, and tails. Find the vehicle in the details.',
     icon: '🔍',
     difficulty: 'HARD',
-    color: '#FF6B00',
+    color: '#EF8A4C',
     tag: 'DETAIL',
   },
   {
@@ -40,7 +40,7 @@ const MODES: GameMode[] = [
     description: 'Close your eyes. Listen. What machine is roaring at you?',
     icon: '🔊',
     difficulty: 'EXPERT',
-    color: '#FF0020',
+    color: '#E14B57',
     tag: 'COMING SOON',
   },
   {
@@ -50,7 +50,7 @@ const MODES: GameMode[] = [
     description: 'Maximum vehicles. Minimum time. Pure instinct over analysis.',
     icon: '⚡',
     difficulty: 'INSANE',
-    color: '#FFD700',
+    color: '#E7C979',
     tag: 'TIMED',
   },
   {
@@ -67,9 +67,9 @@ const MODES: GameMode[] = [
 
 const DIFF_COLORS: Record<string, string> = {
   MEDIUM: '#8B5CF6',
-  HARD: '#FF6B00',
-  EXPERT: '#FF0020',
-  INSANE: '#FFD700',
+  HARD: '#EF8A4C',
+  EXPERT: '#E14B57',
+  INSANE: '#E7C979',
   SHOWCASE: '#00E5FF',
 };
 
@@ -84,7 +84,7 @@ const GameModeCard: React.FC = () => {
         <span style={{
           fontFamily: "'Share Tech Mono', monospace",
           fontSize: '0.75rem',
-          color: '#FF6B00',
+          color: '#EF8A4C',
           letterSpacing: '0.3em',
           display: 'block',
           marginBottom: '0.5rem',
@@ -100,7 +100,7 @@ const GameModeCard: React.FC = () => {
         <div style={{
           width: '60px',
           height: '3px',
-          background: 'linear-gradient(90deg, #FF0020, #FF6B00)',
+          background: 'linear-gradient(90deg, #E14B57, #EF8A4C)',
           margin: '1rem auto 0',
           borderRadius: '2px',
         }} />
@@ -192,8 +192,8 @@ const GameModeCard: React.FC = () => {
                 fontFamily: "'Bebas Neue', cursive",
                 fontSize: '0.9rem',
                 letterSpacing: '0.15em',
-                color: DIFF_COLORS[mode.difficulty] || '#FF0020',
-                textShadow: `0 0 8px ${DIFF_COLORS[mode.difficulty] || '#FF0020'}60`,
+                color: DIFF_COLORS[mode.difficulty] || '#E14B57',
+                textShadow: `0 0 8px ${DIFF_COLORS[mode.difficulty] || '#E14B57'}60`,
               }}>{mode.difficulty}</span>
             </div>
 
