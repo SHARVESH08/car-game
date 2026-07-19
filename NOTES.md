@@ -17,15 +17,28 @@
   fine-grained transfer; ~28M params, CPU-friendly at 224.
 - Train-acc under mixup is approximate (compared against unmixed labels) —
   trust val only.
+- Kaggle batch-run gotchas (cost two wasted runs): (1) the API assigns a P100
+  by default, and current torch builds dropped Pascal support -> instant
+  "CUDA error: no kernel image is available" — pin
+  `"machine_shape": "NvidiaTeslaT4"` in kernel-metadata.json. (2) `!`-prefixed
+  notebook commands don't stop the run on failure, and the batch .log comes
+  back empty — tee every stage's output to files under /kaggle/working/logs/
+  or failures are undiagnosable.
 - Checkpoint every epoch (`last.ckpt`, full optimizer/scheduler/scaler state);
   `--resume auto` survives Kaggle session caps. Kaggle `/kaggle/working` is
   NOT persisted unless you save a notebook version — download `runs/` before
   a session dies mid-training.
-- (fill in after run: linear-probe baseline vs fine-tune, epochs to converge,
-  augmentation observations)
+- Run results (Kaggle T4, 2026-07-19): probe 57.36% val after 5 epochs
+  (~50s/epoch); fine-tune best val 91.24% at epoch 19, early-stopped at 25
+  (~54s/epoch — far faster than the 2-4h estimate). Test top-1 90.55%.
+- Train-acc looks low (~50%) in logs — that's the mixup effect, not a bug.
 
 ## Evaluation
 - Temperature fitted on val (never test); ECE reported raw vs scaled.
+- Fitted T=0.679 (<1): mixup + label smoothing made the model UNDERconfident;
+  calibration sharpens. ECE 0.124 -> 0.021. OOD thresholds from calibrated
+  test dist: max_prob<0.523 or entropy>1.789. Verified: pure-noise image ->
+  max_prob 0.137, refused.
 - OOD thresholds = 5th percentile of calibrated max-prob / 95th percentile of
   entropy on in-distribution test. Heuristic, not a guarantee — revisit with a
   real OOD sample set (e.g. random ImageNet images) if uploads misbehave.
@@ -33,7 +46,12 @@
 
 ## Export / serving
 - ONNX opset 17, dynamic batch. Parity gate: max logit diff < 1e-2 and top-1
-  must match on 8 random inputs.
+  must match on 8 random inputs. Actual: 1.6e-05, 8/8. CPU latency 74ms mean.
+- torch>=2.9 gotchas: torch.onnx.export needs `onnxscript` installed (Kaggle
+  export cell died on this — exported locally instead); new exporter writes
+  weights to a `model.onnx.data` sidecar unless `external_data=False`; on
+  Windows its ✅-emoji progress prints crash cp1252 consoles — run with
+  PYTHONUTF8=1.
 - `api/inference.preprocess` must mirror `ml/transforms.eval_transforms`
   (resize-256 shorter side → center-crop 224 → imagenet norm). PIL BILINEAR vs
   torchvision default interpolation is a known tiny mismatch source — if

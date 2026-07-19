@@ -38,7 +38,11 @@ def main():
         input_names=["image"], output_names=["logits"],
         dynamic_axes={"image": {0: "batch"}, "logits": {0: "batch"}},
         opset_version=args.opset,
+        external_data=False,  # single self-contained file (fits well under 2GB)
     )
+    sidecar = out.with_suffix(".onnx.data")
+    if sidecar.exists():
+        raise SystemExit("export still wrote external data — model not self-contained")
     print(f"exported {out} ({out.stat().st_size / 1e6:.1f} MB)")
 
     # --- parity: torch vs onnxruntime on random inputs ---

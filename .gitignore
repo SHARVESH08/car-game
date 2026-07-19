@@ -14,7 +14,6 @@ __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
-ml/results/
 
 # generated per-machine (absolute-ish paths inside)
 api/test_manifest.json
@@ -22,3 +21,6 @@ api/test_manifest.json
 # node
 node_modules/
 game/dist/
+
+# raw kaggle run downloads (checkpoints etc.)
+kaggle_output/

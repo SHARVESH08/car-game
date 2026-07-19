@@ -1,0 +1,9 @@
+{
+  "backbone": "convnext_tiny.fb_in22k_ft_in1k",
+  "img_size": 224,
+  "temperature": 0.6786,
+  "ood_max_prob": 0.5232,
+  "ood_entropy": 1.7894,
+  "test_top1": 0.9055,
+  "test_top5": 0.9847
+}

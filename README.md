@@ -42,17 +42,28 @@ manifest — the model never replays training images.
 
 ## Results
 
-> **PENDING** — this table is filled in from `ml/results/metrics.json` after
-> the Kaggle run. Numbers below must match `python -m ml.evaluate` output
-> exactly; anything else is a bug.
+From `ml/results/metrics.json`, produced by `python -m ml.evaluate` on the
+frozen 8,041-image official test split (run: Kaggle T4, 2026-07-19; fine-tune
+early-stopped at epoch 25, best val at epoch 19):
 
 | Metric | Linear probe | Fine-tune |
 |---|---|---|
-| Top-1 accuracy | *(pending)* | *(pending)* |
-| Top-5 accuracy | *(pending)* | *(pending)* |
-| Make-level accuracy | — | *(pending)* |
-| ECE (raw → temperature-scaled) | — | *(pending)* |
-| CPU latency (ONNX, 1 image) | — | *(pending)* |
+| Top-1 accuracy | 57.4% (val)* | **90.55%** |
+| Top-5 accuracy | — | **98.47%** |
+| Make-level accuracy | — | 95.71% |
+| ECE (raw → temperature-scaled, T=0.679) | — | 0.124 → **0.021** |
+| CPU latency (ONNX, 1 image) | — | 74 ms mean / 100 ms p95 |
+
+\* the probe was a cheap baseline to set the bar; its 57.4% is validation
+top-1 (5 epochs, frozen backbone) — it was never evaluated on test.
+
+Interesting finds: the fitted temperature is **below 1** (0.679) — mixup +
+label smoothing made the model *under*-confident, so calibration sharpens
+rather than softens. The most-confused pairs are exactly the fine-grained
+traps: *Audi TTS Coupe 2012 ↔ Audi TT Hatchback 2011* (25/42 misses),
+*Chevrolet Express Van ↔ GMC Savana Van* (badge-engineered twins),
+*Dodge Caliber Wagon 2012 ↔ 2007* (same car, different year). Full lists in
+`ml/results/confusion_pairs.json` and `ml/results/per_make.json`.
 
 `ml/evaluate.py` also emits per-make accuracy, the most-confused class pairs
 (expect same-model-different-year pairs to dominate), and reliability bins.

@@ -1,0 +1,198 @@
+{
+  "AM General": {
+    "accuracy": 1.0,
+    "n": 44
+  },
+  "Acura": {
+    "accuracy": 0.9167,
+    "n": 240
+  },
+  "Aston Martin": {
+    "accuracy": 0.7898,
+    "n": 157
+  },
+  "Audi": {
+    "accuracy": 0.7793,
+    "n": 580
+  },
+  "BMW": {
+    "accuracy": 0.9237,
+    "n": 524
+  },
+  "Bentley": {
+    "accuracy": 0.8462,
+    "n": 234
+  },
+  "Bugatti": {
+    "accuracy": 0.8533,
+    "n": 75
+  },
+  "Buick": {
+    "accuracy": 0.9615,
+    "n": 156
+  },
+  "Cadillac": {
+    "accuracy": 0.9922,
+    "n": 128
+  },
+  "Chevrolet": {
+    "accuracy": 0.8389,
+    "n": 894
+  },
+  "Chrysler": {
+    "accuracy": 0.9414,
+    "n": 256
+  },
+  "Daewoo": {
+    "accuracy": 1.0,
+    "n": 45
+  },
+  "Dodge": {
+    "accuracy": 0.9021,
+    "n": 623
+  },
+  "Eagle": {
+    "accuracy": 0.9348,
+    "n": 46
+  },
+  "FIAT": {
+    "accuracy": 1.0,
+    "n": 60
+  },
+  "Ferrari": {
+    "accuracy": 0.9012,
+    "n": 162
+  },
+  "Fisker": {
+    "accuracy": 0.9535,
+    "n": 43
+  },
+  "Ford": {
+    "accuracy": 0.9553,
+    "n": 514
+  },
+  "GMC": {
+    "accuracy": 0.8979,
+    "n": 235
+  },
+  "Geo": {
+    "accuracy": 0.9773,
+    "n": 44
+  },
+  "HUMMER": {
+    "accuracy": 0.7805,
+    "n": 82
+  },
+  "Honda": {
+    "accuracy": 0.9375,
+    "n": 160
+  },
+  "Hyundai": {
+    "accuracy": 0.9353,
+    "n": 433
+  },
+  "Infiniti": {
+    "accuracy": 0.9242,
+    "n": 66
+  },
+  "Isuzu": {
+    "accuracy": 0.975,
+    "n": 40
+  },
+  "Jaguar": {
+    "accuracy": 0.9348,
+    "n": 46
+  },
+  "Jeep": {
+    "accuracy": 0.9495,
+    "n": 218
+  },
+  "Lamborghini": {
+    "accuracy": 0.9177,
+    "n": 158
+  },
+  "Land Rover": {
+    "accuracy": 0.9405,
+    "n": 84
+  },
+  "Lincoln": {
+    "accuracy": 0.9744,
+    "n": 39
+  },
+  "MINI": {
+    "accuracy": 0.9722,
+    "n": 36
+  },
+  "Maybach": {
+    "accuracy": 1.0,
+    "n": 29
+  },
+  "Mazda": {
+    "accuracy": 0.9167,
+    "n": 36
+  },
+  "McLaren": {
+    "accuracy": 1.0,
+    "n": 44
+  },
+  "Mercedes-Benz": {
+    "accuracy": 0.93,
+    "n": 257
+  },
+  "Mitsubishi": {
+    "accuracy": 0.9149,
+    "n": 47
+  },
+  "Nissan": {
+    "accuracy": 0.9588,
+    "n": 170
+  },
+  "Plymouth": {
+    "accuracy": 1.0,
+    "n": 44
+  },
+  "Porsche": {
+    "accuracy": 0.9302,
+    "n": 43
+  },
+  "Ram": {
+    "accuracy": 0.878,
+    "n": 41
+  },
+  "Rolls-Royce": {
+    "accuracy": 0.9018,
+    "n": 112
+  },
+  "Scion": {
+    "accuracy": 1.0,
+    "n": 41
+  },
+  "Spyker": {
+    "accuracy": 0.8736,
+    "n": 87
+  },
+  "Suzuki": {
+    "accuracy": 0.8916,
+    "n": 166
+  },
+  "Tesla": {
+    "accuracy": 1.0,
+    "n": 38
+  },
+  "Toyota": {
+    "accuracy": 0.9146,
+    "n": 164
+  },
+  "Volkswagen": {
+    "accuracy": 0.9847,
+    "n": 131
+  },
+  "Volvo": {
+    "accuracy": 0.969,
+    "n": 129
+  },
+  "smart": {
+    "accuracy": 1.0,
+    "n": 40
+  }
+}

@@ -1,0 +1,152 @@
+[
+  {
+    "true": "Audi TTS Coupe 2012",
+    "predicted": "Audi TT Hatchback 2011",
+    "count": 25,
+    "true_n": 42
+  },
+  {
+    "true": "Chevrolet Express Van 2007",
+    "predicted": "GMC Savana Van 2012",
+    "count": 13,
+    "true_n": 35
+  },
+  {
+    "true": "Audi V8 Sedan 1994",
+    "predicted": "Audi 100 Sedan 1994",
+    "count": 12,
+    "true_n": 43
+  },
+  {
+    "true": "Chevrolet Tahoe Hybrid SUV 2012",
+    "predicted": "Chevrolet Avalanche Crew Cab 2012",
+    "count": 10,
+    "true_n": 37
+  },
+  {
+    "true": "Chevrolet Express Van 2007",
+    "predicted": "Chevrolet Express Cargo Van 2007",
+    "count": 9,
+    "true_n": 35
+  },
+  {
+    "true": "Dodge Caliber Wagon 2012",
+    "predicted": "Dodge Caliber Wagon 2007",
+    "count": 9,
+    "true_n": 40
+  },
+  {
+    "true": "Aston Martin V8 Vantage Coupe 2012",
+    "predicted": "Aston Martin V8 Vantage Convertible 2012",
+    "count": 9,
+    "true_n": 41
+  },
+  {
+    "true": "BMW 6 Series Convertible 2007",
+    "predicted": "BMW M6 Convertible 2010",
+    "count": 8,
+    "true_n": 44
+  },
+  {
+    "true": "Audi S5 Coupe 2012",
+    "predicted": "Audi A5 Coupe 2012",
+    "count": 8,
+    "true_n": 42
+  },
+  {
+    "true": "Chevrolet Express Cargo Van 2007",
+    "predicted": "GMC Savana Van 2012",
+    "count": 8,
+    "true_n": 29
+  },
+  {
+    "true": "HUMMER H2 SUT Crew Cab 2009",
+    "predicted": "AM General Hummer SUV 2000",
+    "count": 8,
+    "true_n": 43
+  },
+  {
+    "true": "Chevrolet Silverado 1500 Hybrid Crew Cab 2012",
+    "predicted": "Chevrolet Silverado 1500 Extended Cab 2012",
+    "count": 8,
+    "true_n": 40
+  },
+  {
+    "true": "Dodge Sprinter Cargo Van 2009",
+    "predicted": "Mercedes-Benz Sprinter Van 2012",
+    "count": 8,
+    "true_n": 39
+  },
+  {
+    "true": "Chevrolet Silverado 2500HD Regular Cab 2012",
+    "predicted": "Chevrolet Silverado 1500 Regular Cab 2012",
+    "count": 8,
+    "true_n": 38
+  },
+  {
+    "true": "Chevrolet Express Cargo Van 2007",
+    "predicted": "Chevrolet Express Van 2007",
+    "count": 7,
+    "true_n": 29
+  },
+  {
+    "true": "Audi 100 Sedan 1994",
+    "predicted": "Audi V8 Sedan 1994",
+    "count": 6,
+    "true_n": 40
+  },
+  {
+    "true": "Audi A5 Coupe 2012",
+    "predicted": "Audi S5 Coupe 2012",
+    "count": 6,
+    "true_n": 41
+  },
+  {
+    "true": "Spyker C8 Coupe 2009",
+    "predicted": "Spyker C8 Convertible 2009",
+    "count": 6,
+    "true_n": 42
+  },
+  {
+    "true": "GMC Savana Van 2012",
+    "predicted": "Chevrolet Express Van 2007",
+    "count": 6,
+    "true_n": 68
+  },
+  {
+    "true": "Dodge Caliber Wagon 2007",
+    "predicted": "Dodge Caliber Wagon 2012",
+    "count": 6,
+    "true_n": 42
+  },
+  {
+    "true": "GMC Yukon Hybrid SUV 2012",
+    "predicted": "Chevrolet Tahoe Hybrid SUV 2012",
+    "count": 6,
+    "true_n": 42
+  },
+  {
+    "true": "Audi 100 Wagon 1994",
+    "predicted": "Audi 100 Sedan 1994",
+    "count": 5,
+    "true_n": 42
+  },
+  {
+    "true": "Chevrolet Silverado 1500 Extended Cab 2012",
+    "predicted": "Chevrolet Silverado 1500 Hybrid Crew Cab 2012",
+    "count": 5,
+    "true_n": 43
+  },
+  {
+    "true": "Audi TT Hatchback 2011",
+    "predicted": "Audi TTS Coupe 2012",
+    "count": 5,
+    "true_n": 40
+  },
+  {
+    "true": "Ferrari 458 Italia Convertible 2012",
+    "predicted": "Ferrari 458 Italia Coupe 2012",
+    "count": 5,
+    "true_n": 39
+  }
+]

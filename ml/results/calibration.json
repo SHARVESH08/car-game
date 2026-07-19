@@ -1,0 +1,132 @@
+{
+  "ece_raw": 0.12440171602793271,
+  "ece_calibrated": 0.02108827676420333,
+  "bins": [
+    {
+      "bin": [
+        0.067,
+        0.133
+      ],
+      "count": 9,
+      "accuracy": 0.2222,
+      "confidence": 0.1142
+    },
+    {
+      "bin": [
+        0.133,
+        0.2
+      ],
+      "count": 34,
+      "accuracy": 0.1765,
+      "confidence": 0.1648
+    },
+    {
+      "bin": [
+        0.2,
+        0.267
+      ],
+      "count": 46,
+      "accuracy": 0.2826,
+      "confidence": 0.2358
+    },
+    {
+      "bin": [
+        0.267,
+        0.333
+      ],
+      "count": 61,
+      "accuracy": 0.2295,
+      "confidence": 0.3019
+    },
+    {
+      "bin": [
+        0.333,
+        0.4
+      ],
+      "count": 69,
+      "accuracy": 0.3913,
+      "confidence": 0.3666
+    },
+    {
+      "bin": [
+        0.4,
+        0.467
+      ],
+      "count": 82,
+      "accuracy": 0.4268,
+      "confidence": 0.4306
+    },
+    {
+      "bin": [
+        0.467,
+        0.533
+      ],
+      "count": 130,
+      "accuracy": 0.5846,
+      "confidence": 0.5035
+    },
+    {
+      "bin": [
+        0.533,
+        0.6
+      ],
+      "count": 143,
+      "accuracy": 0.5524,
+      "confidence": 0.5646
+    },
+    {
+      "bin": [
+        0.6,
+        0.667
+      ],
+      "count": 135,
+      "accuracy": 0.7111,
+      "confidence": 0.6352
+    },
+    {
+      "bin": [
+        0.667,
+        0.733
+      ],
+      "count": 187,
+      "accuracy": 0.6578,
+      "confidence": 0.7005
+    },
+    {
+      "bin": [
+        0.733,
+        0.8
+      ],
+      "count": 212,
+      "accuracy": 0.7264,
+      "confidence": 0.7666
+    },
+    {
+      "bin": [
+        0.8,
+        0.867
+      ],
+      "count": 287,
+      "accuracy": 0.7875,
+      "confidence": 0.8358
+    },
+    {
+      "bin": [
+        0.867,
+        0.933
+      ],
+      "count": 464,
+      "accuracy": 0.8879,
+      "confidence": 0.9033
+    },
+    {
+      "bin": [
+        0.933,
+        1.0
+      ],
+      "count": 6182,
+      "accuracy": 0.9731,
+      "confidence": 0.9893
+    }
+  ]
+}

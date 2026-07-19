@@ -1,0 +1,11 @@
+{
+  "checkpoint": "/kaggle/working/runs/finetune/best.pt",
+  "backbone": "convnext_tiny.fb_in22k_ft_in1k",
+  "test_images": 8041,
+  "top1_accuracy": 0.9055,
+  "top5_accuracy": 0.9847,
+  "make_level_accuracy": 0.9571,
+  "temperature": 0.6786,
+  "ece_before_temperature": 0.1244,
+  "ece_after_temperature": 0.0211
+}
