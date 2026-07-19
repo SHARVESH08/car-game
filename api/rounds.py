@@ -23,12 +23,16 @@ class RoundStore:
         self._open: OrderedDict[str, int] = OrderedDict()  # round_id -> manifest index
 
     def new_round(self) -> dict:
+        from api.scoring import build_hints
+
         idx = self._rng.randrange(len(self.manifest))
         round_id = uuid.uuid4().hex
         self._open[round_id] = idx
         while len(self._open) > self.MAX_OPEN_ROUNDS:
             self._open.popitem(last=False)
-        return {"round_id": round_id, "image_url": f"/round/{round_id}/image"}
+        truth = self.labels[self.manifest[idx]["class_idx"]]
+        return {"round_id": round_id, "image_url": f"/round/{round_id}/image",
+                "hints": build_hints(truth)}
 
     def image_path(self, round_id: str) -> Path | None:
         idx = self._open.get(round_id)

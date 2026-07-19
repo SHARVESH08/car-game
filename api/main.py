@@ -24,7 +24,7 @@ from pydantic import BaseModel
 
 from api.inference import Predictor
 from api.rounds import RoundStore
-from api.scoring import score_ai, score_human
+from api.scoring import free_text_level, score_ai, score_human
 
 NOT_CONFIDENT_MESSAGE = (
     "Not confident — this doesn't look like one of the 196 cars I was trained on. "
@@ -33,7 +33,8 @@ NOT_CONFIDENT_MESSAGE = (
 
 
 class GuessRequest(BaseModel):
-    make: str | None = None
+    answer: str | None = None  # free-text answer (VehicleIQ style)
+    make: str | None = None    # structured guess (alternative to answer)
     model: str | None = None
     mode: str = "classic"
     streak: int = 0
@@ -107,10 +108,16 @@ def create_app(predictor=None, round_store=None) -> FastAPI:
         if truth is None or image_path is None:
             raise HTTPException(404, "unknown or expired round")
         prediction = get_predictor().predict(Image.open(image_path))
+        if guess.answer is not None and guess.make is None:
+            level = "wrong" if guess.timed_out else free_text_level(truth, guess.answer)
+            human = {"level": level, "correct": level != "wrong",
+                     "points": 0}  # VehicleIQ scores client-side from time/hints
+        else:
+            human = score_human(truth, guess.make, guess.model,
+                                guess.mode, guess.streak, guess.timed_out)
         return {
             "truth": truth,
-            "human": score_human(truth, guess.make, guess.model,
-                                 guess.mode, guess.streak, guess.timed_out),
+            "human": human,
             "ai": {**score_ai(truth, prediction.top5[0]),
                    "top5": prediction.top5,
                    "is_confident": prediction.is_confident},

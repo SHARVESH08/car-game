@@ -42,8 +42,22 @@ def test_round_flow_reveal_scores_both_sides(game_env):
     assert body["human"]["level"] in ("model", "make", "wrong")
     assert len(body["ai"]["top5"]) == 2
     assert isinstance(body["ai"]["points"], int)
-    # truth is never exposed before reveal
-    assert "truth" not in client.post("/round").json()
+    # truth is never exposed before reveal; hints are, but don't name the car
+    rd2 = client.post("/round").json()
+    assert "truth" not in rd2
+    assert isinstance(rd2["hints"], list) and len(rd2["hints"]) >= 2
+
+
+def test_free_text_reveal(game_env):
+    client = make_client(game_env, FakePredictor(confident=True, top1_idx=0))
+    round_id = client.post("/round").json()["round_id"]
+    r = client.post(f"/round/{round_id}/reveal",
+                    json={"answer": "definitely a bmw m3", "mode": "classic"})
+    assert r.status_code == 200
+    body = r.json()
+    assert body["human"]["level"] in ("model", "make", "wrong")
+    assert isinstance(body["human"]["correct"], bool)
+    assert body["truth"]["name"]
 
 
 def test_reveal_unknown_round_404(game_env):

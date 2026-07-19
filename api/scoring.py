@@ -13,6 +13,30 @@ def _norm(s: str | None) -> str:
     return (s or "").strip().casefold()
 
 
+def free_text_level(truth: dict, answer: str | None) -> str:
+    """VehicleIQ's generous free-text rule: the typed answer counts if it
+    contains the make or the model (case-insensitive)."""
+    a = _norm(answer)
+    if not a:
+        return "wrong"
+    if _norm(truth["model"]) in a:
+        return "model"
+    if _norm(truth["make"]) in a:
+        return "make"
+    return "wrong"
+
+
+def build_hints(truth: dict) -> list[str]:
+    """Progressive hints that tease without naming the car."""
+    model_words = truth["model"].split()
+    body = model_words[-1] if len(model_words) > 1 else None
+    hints = [f"Made in {truth['year']}"]
+    if body and body.lower() not in ("edition",):
+        hints.append(f"Body style: {body}")
+    hints.append(f"Make starts with '{truth['make'][0].upper()}'")
+    return hints
+
+
 def match_level(truth: dict, guess_make: str | None, guess_model: str | None) -> str:
     """'model' | 'make' | 'wrong'. truth has keys make, model."""
     if _norm(guess_make) != _norm(truth["make"]):
