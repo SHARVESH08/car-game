@@ -47,6 +47,12 @@
 ## Export / serving
 - ONNX opset 17, dynamic batch. Parity gate: max logit diff < 1e-2 and top-1
   must match on 8 random inputs. Actual: 1.6e-05, 8/8. CPU latency 74ms mean.
+- onnxruntime on Windows: the default spin-wait intra-op pool has a ~2s wakeup
+  penalty after the process idles a few seconds (measured: 50ms back-to-back,
+  2.0-2.5s after any 2s+ idle). Game traffic is inherently idle-gapped ->
+  `session.intra_op.allow_spinning=0` + 4 threads: idle-predict ~0.3-0.5s.
+  Benchmarks that only measure back-to-back loops (like export_onnx's 74ms)
+  hide this completely.
 - torch>=2.9 gotchas: torch.onnx.export needs `onnxscript` installed (Kaggle
   export cell died on this — exported locally instead); new exporter writes
   weights to a `model.onnx.data` sidecar unless `external_data=False`; on

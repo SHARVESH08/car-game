@@ -10,8 +10,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-# set after publishing a GitHub release with model.onnx attached
-RELEASE_URL = "https://github.com/YOUR_USERNAME/car-game/releases/download/v1.0/model.onnx"
+RELEASE_URL = "https://github.com/SHARVESH08/car-game/releases/download/v1.0/model.onnx"
 
 HERE = Path(__file__).parent
 TARGET = HERE / "model.onnx"

@@ -65,7 +65,14 @@ class Predictor:
     def __init__(self, onnx_path: str, labels_path: str, meta_path: str | None = None):
         import onnxruntime as ort  # imported here so tests can fake the Predictor
 
-        self.session = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
+        # Spin-wait threads suffer a ~2s wakeup penalty on Windows after the
+        # process idles (measured). Game requests arrive seconds apart, so
+        # disable spinning: idle-then-predict drops from ~2s to ~0.3s.
+        opts = ort.SessionOptions()
+        opts.intra_op_num_threads = 4
+        opts.add_session_config_entry("session.intra_op.allow_spinning", "0")
+        self.session = ort.InferenceSession(str(onnx_path), opts,
+                                            providers=["CPUExecutionProvider"])
         self.labels = json.loads(Path(labels_path).read_text())
         self.meta = dict(DEFAULT_META)
         if meta_path and Path(meta_path).exists():
